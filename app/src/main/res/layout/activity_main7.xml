@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33F885B2"
+    tools:context=".MainActivity7">
+
+    <Button
+        android:id="@+id/btnRegister13"
+        android:layout_width="264dp"
+        android:layout_height="102dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#E9E44094"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="Add New Nail Polish"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegister14"
+        android:layout_width="264dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="#E9E44094"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="Appointments"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegister15"
+        android:layout_width="264dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#E9E44094"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="Find Design"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegister12"
+        android:layout_width="264dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#E9E44094"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="My Profile"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegister6"
+        android:layout_width="107dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#E9E44094"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="Back"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="344dp"
+        android:layout_height="154dp"
+        android:layout_marginBottom="24dp"
+        android:text="Home Page Manicurist"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

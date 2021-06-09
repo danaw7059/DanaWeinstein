@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#33F885B2"
-    tools:context=".MainActivity8">
+    tools:context=".MainActivity_new_nail_polish">
 
     <Button
         android:id="@+id/btnRegister17"
@@ -13,6 +13,7 @@
         android:layout_height="78dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="addOnClick"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Add"
@@ -28,6 +29,7 @@
         android:layout_width="107dp"
         android:layout_height="58dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="BackOnClick"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Back"
@@ -50,30 +52,30 @@
         android:textAlignment="center"
         android:textSize="60sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName7"
+        app:layout_constraintBottom_toTopOf="@+id/editTextCompanyName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName7"
+        android:id="@+id/editTextCompanyName"
         android:layout_width="171dp"
         android:layout_height="52dp"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:hint="Company Name"
         android:inputType="textPersonName"
-        android:text="Company Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName8"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPolishNailCode"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/editTextPolishNailCode"
         android:layout_width="169dp"
         android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Polish Nail Code"
         android:inputType="textPersonName"
-        android:text="Polish Nail Code"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent" />
@@ -100,25 +102,26 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:text="Light"
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:text="Wintery"
-            android:textSize="18sp" />
-
-        <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="51dp"
+            android:text="Winter"
+            android:textSize="18sp"/>
+
+        <CheckBox
+            android:id="@+id/checkBox5"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
             android:text="Sparkle"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -132,17 +135,17 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:text="Dark"
             android:textSize="18sp" />
 
         <CheckBox
-            android:id="@+id/checkBox5"
+            android:id="@+id/checkBox4"
             android:layout_width="match_parent"
             android:layout_height="51dp"
-            android:text="Summery"
+            android:text="Summer"
             android:textSize="18sp" />
 
         <CheckBox

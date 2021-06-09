@@ -15,12 +15,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void LoginOnClick(View view) {
-        Intent loginPage = new Intent(this,MainActivity2.class);
+        Intent loginPage = new Intent(this, MainActivity_login.class);
         startActivity(loginPage);
     }
 
     public void RegisterOnClick(View view) {
-        Intent registerPage = new Intent(this,MainActivity3.class);
+        Intent registerPage = new Intent(this, MainActivity_register.class);
         startActivity(registerPage);
     }
 }

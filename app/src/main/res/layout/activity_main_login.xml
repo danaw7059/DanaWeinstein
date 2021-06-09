@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#33F885B2"
-    tools:context=".MainActivity2" >
+    tools:context=".MainActivity_login" >
 
     <Button
         android:id="@+id/btnRegister7"
@@ -32,6 +32,7 @@
         android:layout_height="85dp"
         android:layout_marginBottom="120dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="login"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Login"
@@ -69,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTextTextUserName3"
         android:layout_width="242dp"
         android:layout_height="67dp"
         android:ems="10"

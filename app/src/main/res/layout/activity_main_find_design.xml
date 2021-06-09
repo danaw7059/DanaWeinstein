@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#33F885B2"
-    tools:context=".MainActivity9">
+    tools:context=".MainActivity_find_design">
 
     <Button
-        android:id="@+id/btnRegister19"
+        android:id="@+id/btnFind"
         android:layout_width="285dp"
         android:layout_height="78dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="find"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Find"
@@ -29,6 +30,7 @@
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="BackOnClick"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Back"
@@ -62,27 +64,27 @@
         android:layout_height="253dp"
         android:layout_marginBottom="32dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister19"
+        app:layout_constraintBottom_toTopOf="@+id/btnFind"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <CheckBox
-            android:id="@+id/checkBox7"
+            android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:text="Light"
             android:textSize="24sp" />
 
         <CheckBox
-            android:id="@+id/checkBox9"
+            android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:text="Wintery"
+            android:text="Winter"
             android:textSize="24sp" />
 
         <CheckBox
-            android:id="@+id/checkBox10"
+            android:id="@+id/checkBox5"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:text="Sparkle"
@@ -97,28 +99,29 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="32dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister19"
+        app:layout_constraintBottom_toTopOf="@+id/btnFind"
         app:layout_constraintEnd_toEndOf="parent">
 
         <CheckBox
-            android:id="@+id/checkBox12"
+            android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:text="Dark"
             android:textSize="24sp" />
 
         <CheckBox
-            android:id="@+id/checkBox13"
+            android:id="@+id/checkBox4"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:text="Summery"
+            android:text="Summer"
             android:textSize="24sp" />
 
         <CheckBox
-            android:id="@+id/checkBox14"
+            android:id="@+id/checkBox6"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:text="Fancy"
             android:textSize="24sp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

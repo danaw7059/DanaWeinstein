@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33F885B2"
+    tools:context=".MainActivity_gallery_mani">
+
+    <Button
+        android:id="@+id/btnRegister21"
+        android:layout_width="160dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#E9E44094"
+        android:onClick="onClickAddPicture"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="Add Pic"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRegister23"
+        app:layout_constraintStart_toStartOf="@+id/textViewDetails"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetails"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnRegister23"
+        android:layout_width="160dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#E9E44094"
+        android:onClick="onClickEdit"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="Edit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/gridViewGalleryMani"
+        app:layout_constraintStart_toEndOf="@+id/btnRegister21" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="205dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="96dp"
+        android:text="Gallery"
+        android:textSize="60sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegister14"
+        android:layout_width="107dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#E9E44094"
+        android:onClick="BackOnClick"
+        android:selectAllOnFocus="true"
+        android:shadowColor="#FFFFFF"
+        android:text="Back"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <GridView
+        android:id="@+id/gridViewGalleryMani"
+        android:layout_width="409dp"
+        android:layout_height="278dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewDetails"
+        android:layout_width="314dp"
+        android:layout_height="116dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister23"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+</androidx.constraintlayout.widget.ConstraintLayout>

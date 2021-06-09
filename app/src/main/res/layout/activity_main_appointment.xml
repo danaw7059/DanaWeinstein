@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#33F885B2"
-    tools:context=".MainActivity10">
+    tools:context=".MainActivity_appointment">
 
     <Button
         android:id="@+id/btnRegister20"
@@ -13,6 +13,7 @@
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="BackOnClick"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Back"
@@ -30,22 +31,34 @@
         android:id="@+id/textView9"
         android:layout_width="393dp"
         android:layout_height="86dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="136dp"
         android:text="Appointments"
         android:textAlignment="center"
         android:textSize="60sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="168dp"
+        android:layout_marginBottom="68dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="75dp"
+        android:layout_height="34dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.558" />
 </androidx.constraintlayout.widget.ConstraintLayout>

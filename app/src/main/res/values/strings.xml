@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DanaWeinstein</string>
+    <string-array name="calenderTypes">
+        <item>Make Schedules</item>
+        <item>View Appointments</item>
+    </string-array>
 </resources>

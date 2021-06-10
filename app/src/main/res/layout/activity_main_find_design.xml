@@ -13,7 +13,7 @@
         android:layout_height="78dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="#E9E44094"
-        android:onClick="find"
+        android:onClick="OnClickfind"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Find"

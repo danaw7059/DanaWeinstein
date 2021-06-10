@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textViewDetailsClient"
         android:layout_width="380dp"
         android:layout_height="169dp"
         android:text="TextView"
@@ -50,6 +50,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <GridView
+        android:id="@+id/gridViewGalleryClient"
         android:layout_width="409dp"
         android:layout_height="337dp"
         app:layout_constraintBottom_toBottomOf="parent"

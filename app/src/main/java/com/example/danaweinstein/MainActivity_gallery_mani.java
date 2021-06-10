@@ -14,13 +14,19 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity_gallery_mani extends AppCompatActivity {
 
     TextView textview;
     Bitmap image;
+
+    GridView gallery;
+    ArrayList<GalleryPhoto> arrGalleryPhotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,17 @@ public class MainActivity_gallery_mani extends AppCompatActivity {
         setContentView(R.layout.activity_main_gallery_mani);
 
         textview = findViewById(R.id.textViewDetails);
+
+        gallery = findViewById(R.id.gridViewGalleryMani);
+        arrGalleryPhotos = new ArrayList<>();
+
+        getGalleryPhotosData();
+        GalleryPhotoAdapter galleryPhotoAdapter = new GalleryPhotoAdapter(this,R.layout.gallery_cell,arrGalleryPhotos);
+        gallery.setAdapter(galleryPhotoAdapter);
+    }
+
+    private void getGalleryPhotosData() {
+
     }
 
     public void BackOnClick(View view) {

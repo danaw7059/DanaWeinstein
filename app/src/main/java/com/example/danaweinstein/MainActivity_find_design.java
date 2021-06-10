@@ -1,11 +1,14 @@
 package com.example.danaweinstein;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -71,5 +74,21 @@ public class MainActivity_find_design extends AppCompatActivity {
         //זמני
         Intent BackPage = new Intent(this,MainActivity_home_mani.class);
         startActivity(BackPage);
+    }
+
+    public void OnClickfind(View view) {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.danails);
+
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+                        builder.setView(image);
+        builder.create().show();
     }
 }

@@ -7,6 +7,17 @@
     android:background="#33F885B2"
     tools:context=".MainActivity_setting_mani">
 
+    <TextView
+        android:id="@+id/textViewDetails2"
+        android:layout_width="314dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/textView12" />
+
     <Button
         android:id="@+id/btnRegister10"
         android:layout_width="107dp"
@@ -28,20 +39,21 @@
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="264dp"
-        android:layout_height="99dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="129dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="144dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="onClickEdit"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
-        android:text="Set"
+        android:text="Edit"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.394"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewDetails2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewDetails2" />
 
     <TextView
         android:id="@+id/textView4"
@@ -56,5 +68,17 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="142dp"
+        android:layout_height="46dp"
+        android:text="ID:"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDetails2"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.421" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

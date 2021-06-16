@@ -15,6 +15,8 @@ public class MainActivity_register extends AppCompatActivity {
     EditText username;
     EditText password;
     EditText email;
+    Dal dal;
+
 
     RadioGroup types;
 
@@ -29,6 +31,8 @@ public class MainActivity_register extends AppCompatActivity {
         email = findViewById(R.id.editTextEmail);
         types = findViewById(R.id.radioGrupeTypes);
 
+        dal = new Dal(this);
+
     }
 
     public void BackOnClick(View view) {
@@ -37,18 +41,36 @@ public class MainActivity_register extends AppCompatActivity {
     }
 
     public void registerOnClick(View view) {
-        String type;
-        if (types.getCheckedRadioButtonId() == R.id.radioButtonManicurist)
-            type = "Manicurist";
-        else
-            type = "Client";
-        String str = fullName.getText().toString() + " , " + username.getText().toString() + " , " + password.getText().toString() + " , " + email.getText().toString() + " ' " + type;
-        Toast.makeText(this,str ,Toast.LENGTH_SHORT).show();
 
 
-        //Intent manicuristHomePage = new Intent(this, MainActivity_home_mani.class);
-        //startActivity(manicuristHomePage);
-        Intent clientHomePage = new Intent(this, MainActivity_home_client.class);
-        startActivity(clientHomePage);
+        if(fullName.getText() !=null && username.getText() !=null && password.getText() !=null && email.getText() !=null && types.getCheckedRadioButtonId() ==-1 )
+        {
+            if (!dal.checkForAccount(username.getText().toString(),password.getText().toString())){
+                dal.addAccount(username.getText().toString(), password.getText().toString(), email.getText().toString());
+                 String type;
+                 if (types.getCheckedRadioButtonId() == R.id.radioButtonManicurist) {
+                     dal.addManicurist(fullName.getText().toString(), dal.getAccount(username.getText().toString()).getId(), "");
+                     Intent manicuristHomePage = new Intent(this, MainActivity_home_mani.class);
+                     manicuristHomePage.putExtra("mani_id", dal.getManicuristByAccountId(dal.getAccount(username.getText().toString()).getId()).getId());
+                     startActivity(manicuristHomePage);
+                 }
+                else {
+                dal.addClient(fullName.getText().toString(), dal.getAccount(username.getText().toString()).getId(), 0);
+                Intent clientHomePage = new Intent(this, MainActivity_home_client.class);
+                clientHomePage.putExtra("client_id", dal.getClientByAccountId(dal.getAccount(username.getText().toString()).getId()).getId());
+                startActivity(clientHomePage);
+            }
+
+            }
+            else
+            {
+                Toast.makeText(this,"Account already exists",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+        else {
+            Toast.makeText(this,"Some values are empty",Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

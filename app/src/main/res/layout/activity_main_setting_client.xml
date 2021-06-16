@@ -8,7 +8,7 @@
     tools:context=".MainActivity_setting_client">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextTextManiId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -47,6 +47,7 @@
         android:layout_height="99dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="#E9E44094"
+        android:onClick="onClickSet"
         android:selectAllOnFocus="true"
         android:shadowColor="#FFFFFF"
         android:text="Set"

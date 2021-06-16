@@ -12,6 +12,7 @@ public class MainActivity_login extends AppCompatActivity {
 
     EditText username;
     EditText password;
+    Dal dal;
 
 
     @Override
@@ -21,6 +22,7 @@ public class MainActivity_login extends AppCompatActivity {
 
         username = findViewById(R.id.editTextTextUserName3);
         password = findViewById(R.id.editTextTextPassword3);
+        dal =new Dal(this);
     }
 
 
@@ -35,8 +37,27 @@ public class MainActivity_login extends AppCompatActivity {
         String stPassword = password.getText().toString();
 
         Toast.makeText(this,"username: " + stUsername + " password: " + stPassword,Toast.LENGTH_SHORT).show();
+        if(dal.checkForAccount(stUsername,stPassword) )
+        {
+            if(dal.checkAccountType((dal.getAccount(stUsername)).getId()))
+            {
+                Intent manicuristHomePage = new Intent(this, MainActivity_home_mani.class);
+                manicuristHomePage.putExtra("mani_id",dal.getManicuristByAccountId(dal.getAccount(stUsername).getId()).getId());
+                startActivity(manicuristHomePage);
+            }
+            else
+            {
+                Intent clientHomePage = new Intent(this, MainActivity_home_client.class);
+                clientHomePage.putExtra("client_id",dal.getClientByAccountId(dal.getAccount(stUsername).getId()).getId());
+                startActivity(clientHomePage);
+            }
 
-        Intent manicuristHomePage = new Intent(this, MainActivity_home_mani.class);
-        startActivity(manicuristHomePage);
+        }
+        else
+        {
+            Toast.makeText(this,"Username or password are wrong",Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 }

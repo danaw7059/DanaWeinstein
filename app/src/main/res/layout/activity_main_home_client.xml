@@ -65,7 +65,7 @@
         android:id="@+id/textView6"
         android:layout_width="318dp"
         android:layout_height="165dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="20dp"
         android:text="Home Page Client"
         android:textAlignment="center"
         android:textSize="60sp"
@@ -74,4 +74,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="109dp"
+        android:layout_height="68dp"
+        android:onClick="onClickSettingClient"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settingicon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@ public class MainActivity_setting_mani extends AppCompatActivity {
         textView =findViewById(R.id.textViewDetails2);
         dal = new Dal(this);
         ((TextView)findViewById(R.id.textView12)).setText(((TextView)findViewById(R.id.textView12)).getText().toString() + getIntent().getIntExtra("mani_id",0));
-
+        textView.setText(dal.getManiDetail(getIntent().getIntExtra("mani_id",0)));
     }
 
     public void BackOnClick(View view) {

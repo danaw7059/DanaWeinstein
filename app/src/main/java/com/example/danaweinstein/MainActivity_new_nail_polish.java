@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity_new_nail_polish extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class MainActivity_new_nail_polish extends AppCompatActivity {
     ArrayList<String> designs;
 
     Bitmap image;
+    Dal dal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,36 +50,44 @@ public class MainActivity_new_nail_polish extends AppCompatActivity {
         sparkle = findViewById(R.id.checkBox5);
         fancy = findViewById(R.id.checkBox6);
         designs = new ArrayList<String>();
+
+        dal = new Dal(this);
     }
 
     public void addOnClick(View view) {
 
         if (light.isChecked()) {
-            designs.add("light");
+            designs.add("Light");
         }
         if (dark.isChecked()) {
-            designs.add("dark");
+            designs.add("Dark");
         }
         if (winter.isChecked()) {
-            designs.add("winter");
+            designs.add("Winter");
         }
         if (summer.isChecked()) {
-            designs.add("summer");
+            designs.add("Summer");
         }
         if (sparkle.isChecked()) {
-            designs.add("sparkle");
+            designs.add("Sparkle");
         }
         if (fancy.isChecked()) {
-            designs.add("fancy");
+            designs.add("Fancy");
         }
-        String str = "Company Name: " + companyName.getText().toString() + " , Polish Name Code: " + polishNailCode.getText().toString() + " , Designs: ";
+        String strdesigns = "";
         int size = designs.size();
         for(int i = 0; i < size - 1; i++){
-            str += designs.remove(0);
-            str += ", ";
+            strdesigns += designs.remove(0);
+            strdesigns += ",";
         }
-        str += designs.remove(0);
-        Toast.makeText(this,str ,Toast.LENGTH_SHORT).show();
+        strdesigns += designs.remove(0);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        Design new_design = new Design(0,getIntent().getIntExtra("mani_id",0),strdesigns,byteArray,companyName.getText().toString(),polishNailCode.getText().toString());
+        dal.addNewPolishNail(new_design);
+
+        Toast.makeText(this,"New nail polish added",Toast.LENGTH_SHORT).show();
     }
 
     public void BackOnClick(View view) {

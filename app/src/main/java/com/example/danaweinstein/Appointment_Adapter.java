@@ -52,4 +52,8 @@ public class Appointment_Adapter extends ArrayAdapter {
             appointment.setSelected(false);
         }
     }
+    public Appointment getHour(int i)
+    {
+        return this.data.get(i);
+    }
 }

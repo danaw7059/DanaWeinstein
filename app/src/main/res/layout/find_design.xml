@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/TextCompany"
+        android:layout_width="148dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/findDesignImage"
+        app:layout_constraintStart_toStartOf="@+id/findDesignImage"
+        app:layout_constraintTop_toBottomOf="@+id/findDesignImage" />
+
+    <ImageView
+        android:id="@+id/findDesignImage"
+        android:layout_width="296dp"
+        android:layout_height="321dp"
+        android:layout_marginTop="68dp"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/danails" />
+
+    <TextView
+        android:id="@+id/TextCodePolishNail"
+        android:layout_width="148dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/TextCompany"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/TextCompany"
+        app:layout_constraintTop_toBottomOf="@+id/TextCompany" />
+</androidx.constraintlayout.widget.ConstraintLayout>

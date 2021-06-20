@@ -39,4 +39,12 @@ public class Appointment {
         return str;
     }
 
+    public String getStringHour() {
+        String st = "";
+        if (hour < 10)
+            st += "0";
+        st += hour;
+        return  st;
+    }
+
 }

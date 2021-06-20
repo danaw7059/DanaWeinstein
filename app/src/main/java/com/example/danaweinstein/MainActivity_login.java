@@ -36,7 +36,7 @@ public class MainActivity_login extends AppCompatActivity {
         String stUsername =username.getText().toString();
         String stPassword = password.getText().toString();
 
-        Toast.makeText(this,"username: " + stUsername + " password: " + stPassword,Toast.LENGTH_SHORT).show();
+
         if(dal.checkForAccount(stUsername,stPassword) )
         {
             if(dal.checkAccountType((dal.getAccount(stUsername)).getId()))

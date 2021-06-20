@@ -35,6 +35,8 @@ public class MainActivity_appointment extends AppCompatActivity implements Calen
             i.putExtra("year", i0);
             i.putExtra("month", i1);
             i.putExtra("day", i2);
+            i.putExtra("mani_id",getIntent().getIntExtra("mani_id",0));
+            i.putExtra("client_id",getIntent().getIntExtra("client_id",0));
             startActivity(i);
         }
         if (spinner.getSelectedItemPosition() == 1){
@@ -42,6 +44,8 @@ public class MainActivity_appointment extends AppCompatActivity implements Calen
             i.putExtra("year", i0);
             i.putExtra("month", i1);
             i.putExtra("day", i2);
+            i.putExtra("mani_id",getIntent().getIntExtra("mani_id",0));
+            i.putExtra("client_id",getIntent().getIntExtra("client_id",0));
             startActivity(i);
         }
     }

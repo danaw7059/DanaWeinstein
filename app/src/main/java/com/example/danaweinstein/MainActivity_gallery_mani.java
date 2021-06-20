@@ -18,12 +18,14 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity_gallery_mani extends AppCompatActivity {
 
     TextView textview;
     Bitmap image;
+    Dal dal;
 
     GridView gallery;
     ArrayList<GalleryPhoto> arrGalleryPhotos;
@@ -37,49 +39,18 @@ public class MainActivity_gallery_mani extends AppCompatActivity {
 
         gallery = findViewById(R.id.gridViewGalleryMani);
         arrGalleryPhotos = new ArrayList<>();
+        dal = new Dal(this);
 
-        getGalleryPhotosData();
+        arrGalleryPhotos = dal.getGalleryPhotos(getIntent().getIntExtra("mani_id",0));
+
         GalleryPhotoAdapter galleryPhotoAdapter = new GalleryPhotoAdapter(this,R.layout.gallery_cell,arrGalleryPhotos);
         gallery.setAdapter(galleryPhotoAdapter);
     }
 
-    private void getGalleryPhotosData() {
-
-    }
 
     public void BackOnClick(View view) {
         Intent BackPage = new Intent(this,MainActivity_home_mani.class);
         startActivity(BackPage);
-    }
-
-    public void onClickEdit(View view) {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Edit Details");
-
-        final EditText input = new EditText(this);
-        input.setText(textview.getText());
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        input.setLayoutParams(lp);
-        alertDialog.setView(input);
-
-        alertDialog.setPositiveButton("Confirm",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        textview.setText(input.getText());
-
-                    }
-                });
-
-        alertDialog.setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-        alertDialog.show();
     }
 
     public void onClickAddPicture(View view) {
@@ -96,10 +67,18 @@ public class MainActivity_gallery_mani extends AppCompatActivity {
                 if (options[item].equals("Take Photo")) {
                     Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(takePicture, 0);
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    byte[] byteArray = stream.toByteArray();
+                    dal.addImageToGallery(getIntent().getIntExtra("mani_id",0),byteArray);
 
                 } else if (options[item].equals("Choose from Gallery")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(pickPhoto , 1);
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    byte[] byteArray = stream.toByteArray();
+                    dal.addImageToGallery(getIntent().getIntExtra("mani_id",0),byteArray);
 
                 } else if (options[item].equals("Cancel")) {
                     dialog.dismiss();

@@ -43,7 +43,7 @@ public class MainActivity_register extends AppCompatActivity {
     public void registerOnClick(View view) {
 
 
-        if(fullName.getText() !=null && username.getText() !=null && password.getText() !=null && email.getText() !=null && types.getCheckedRadioButtonId() ==-1 )
+        if(!fullName.getText().toString().matches("") && !username.getText().toString().matches("")  && !password.getText().toString().matches("") && !email.getText().toString().matches("") && types.getCheckedRadioButtonId() !=-1 )
         {
             if (!dal.checkForAccount(username.getText().toString(),password.getText().toString())){
                 dal.addAccount(username.getText().toString(), password.getText().toString(), email.getText().toString());

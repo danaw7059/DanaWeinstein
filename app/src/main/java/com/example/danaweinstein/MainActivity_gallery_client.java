@@ -2,6 +2,7 @@ package com.example.danaweinstein;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
@@ -15,6 +16,9 @@ public class MainActivity_gallery_client extends AppCompatActivity {
     GridView gallery;
     ArrayList<GalleryPhoto> arrGalleryPhotos;
 
+    Bitmap image;
+    Dal dal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +29,15 @@ public class MainActivity_gallery_client extends AppCompatActivity {
         gallery = findViewById(R.id.gridViewGalleryClient);
         arrGalleryPhotos = new ArrayList<>();
 
-        getGalleryPhotosData();
+        dal= new Dal(this);
+
+        arrGalleryPhotos = dal.getGalleryPhotos(dal.getClientByClientId(getIntent().getIntExtra("client_id", 0)).getMani_id());
+
         GalleryPhotoAdapter galleryPhotoAdapter = new GalleryPhotoAdapter(this,R.layout.gallery_cell,arrGalleryPhotos);
         gallery.setAdapter(galleryPhotoAdapter);
+
+        textview.setText(dal.getManiDetail(dal.getClientByClientId(getIntent().getIntExtra("client_id", 0)).getMani_id()));
+
     }
 
     private void getGalleryPhotosData() {

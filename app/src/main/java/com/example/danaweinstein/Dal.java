@@ -99,7 +99,7 @@ public class Dal extends SQLiteAssetHelper {
 
     public void addManicurist(String full_name, int account_id, String details) {
         SQLiteDatabase db = getWritableDatabase();
-        String sql_INSERT = "INSERT INTO manicurist (id_account, details, full_name) values(?,?,?)";
+        String sql_INSERT = "INSERT INTO manicurist (account_id, details, full_name) values(?,?,?)";
         SQLiteStatement statement = db.compileStatement(sql_INSERT);
 
         statement.bindDouble(1, account_id);
@@ -178,58 +178,54 @@ public class Dal extends SQLiteAssetHelper {
           5 - Fancy
         */
         String[] d = new String[]{"'%Light%'", "'%Dark%'", "'%Winter%'", "'%Summer%'", "'%Sparkle%'", "'%Fancy%'"};
-        Design[][] designs = new Design[6][];
-        int counter = 0;
-        for (int i = 0; i < 6; i++) {
-            designs[i] = helperFindNewPolishNail(d[i], mani_id);
-            counter += designs[i].length;
-        }
+//        Design[][] designs = new Design[6][];
+//        int counter = 0;
+//        for (int i = 0; i < 6; i++) {
+//            designs[i] = helperFindNewPolishNail(d[i], mani_id);
+//            counter += designs[i].length;
+//        }
+//        ArrayList<Design> arrDesigns = new ArrayList<>();
+//        Design[] connected = new Design[counter];
+
         ArrayList<Design> arrDesigns = new ArrayList<>();
-        Design[] connected = new Design[counter];
-        counter = 0;
+        int counter = 1;
+        ArrayList<Design> designs=new ArrayList<>();
         if (details.contains("Light")) {
-            System.arraycopy(designs[0], 0, connected, 0, designs[0].length);
-            counter += designs[0].length;
+            designs.addAll(helperFindNewPolishNail("'%Light%'",mani_id));
         }
         if (details.contains("Dark")) {
-            System.arraycopy(designs[1], 0, connected, counter, designs[1].length);
-            counter += designs[1].length;
+            designs.addAll(helperFindNewPolishNail("'%Dark%'",mani_id));
         }
         if (details.contains("Winter")) {
-            System.arraycopy(designs[2], 0, connected, counter, designs[2].length);
-            counter += designs[2].length;
+            designs.addAll(helperFindNewPolishNail("'%Winter%'",mani_id));
         }
         if (details.contains("Summer")) {
-            System.arraycopy(designs[3], 0, connected, counter, designs[3].length);
-            counter += designs[3].length;
+            designs.addAll(helperFindNewPolishNail("'%Summer%'",mani_id));
         }
         if (details.contains("Sparkle")) {
-            System.arraycopy(designs[4], 0, connected, counter, designs[4].length);
-            counter += designs[4].length;
+            designs.addAll(helperFindNewPolishNail("'%Sparkle%'",mani_id));
         }
         if (details.contains("Fancy")) {
-            System.arraycopy(designs[5], 0, connected, counter, designs[5].length);
-            counter += designs[5].length;
+            designs.addAll(helperFindNewPolishNail("'%Fancy%'",mani_id));
         }
-        counter = 1;
 
         for (int i = 0; i < details.length(); i++) {
             if (details.charAt(i) == ',')
                 counter++;
         }
 
-        while (arrDesigns.isEmpty()) {
-            for (int i = 0; i < connected.length; i++) {
+        while (arrDesigns.isEmpty() && counter!=0) {
+            for (int i = 0; i < designs.size(); i++) {
                 int count = 0;
-                for (int j = 0; j < connected.length; j++) {
+                for (int j = 0; j < designs.size(); j++) {
                     {
-                        if (connected[i] == connected[j]) {
+                        if (designs.get(i) == designs.get(j) ) {
                             count++;
                         }
 
                     }
                     if (count >= counter) {
-                        arrDesigns.add(connected[i]);
+                        arrDesigns.add(designs.get(i));
                     }
                 }
             }
@@ -238,37 +234,23 @@ public class Dal extends SQLiteAssetHelper {
         return arrDesigns;
     }
 
-    private Design[] helperFindNewPolishNail(String st, int mani_id) {
+    private ArrayList<Design> helperFindNewPolishNail(String st, int mani_id) {
+
         String sqlst = "SELECT * FROM designs WHERE id_mani = " + mani_id + " AND details LIKE " + st;
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery(sqlst, null);
-        Design[] designs = new Design[cursor.getCount()];
-        int i = 0;
-        while(cursor.moveToNext())
-        {
-            designs[i] = new Design();
-            designs[i].setId(cursor.getInt(cursor.getColumnIndex("id")));
-            designs[i].setId_mani(cursor.getInt(cursor.getColumnIndex("id_mani")));
-            designs[i].setDetails(cursor.getString(cursor.getColumnIndex("details")));
-            designs[i].setImage(cursor.getBlob(cursor.getColumnIndex("image")));
-            designs[i].setCompany_name(cursor.getString(cursor.getColumnIndex("company_name")));
-            designs[i].setPolish_nail_code(cursor.getString(cursor.getColumnIndex("polish_nail_code")));
-            i++;
-        }
-        /*
-        for(int i=0;i<designs.length;i++)
-        {
-            cursor.moveToNext();
-            designs[i] = new Design();
-            designs[i].setId(cursor.getInt(cursor.getColumnIndex("id")));
-            designs[i].setId_mani(cursor.getInt(cursor.getColumnIndex("id_mani")));
-            designs[i].setDetails(cursor.getString(cursor.getColumnIndex("details")));
-            designs[i].setImage(cursor.getBlob(cursor.getColumnIndex("image")));
-            designs[i].setCompany_name(cursor.getString(cursor.getColumnIndex("company_name")));
-            designs[i].setPolish_nail_code(cursor.getString(cursor.getColumnIndex("polish_nail_code")));
+        ArrayList<Design> designs = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            Design d = new Design();
+            d.setId(cursor.getInt(cursor.getColumnIndex("id")));
+            d.setId_mani(cursor.getInt(cursor.getColumnIndex("id_mani")));
+            d.setDetails(cursor.getString(cursor.getColumnIndex("details")));
+            d.setImage(cursor.getBlob(cursor.getColumnIndex("image")));
+            d.setCompany_name(cursor.getString(cursor.getColumnIndex("company_name")));
+            d.setPolish_nail_code(cursor.getString(cursor.getColumnIndex("polish_nail_code")));
+            designs.add(d);
 
         }
-        */
         return designs;
     }
 
@@ -341,12 +323,13 @@ public class Dal extends SQLiteAssetHelper {
             GalleryPhoto galleryPhoto = new GalleryPhoto(BitmapFactory.decodeByteArray(cursor.getBlob(cursor.getColumnIndex("image")), 0, cursor.getBlob(cursor.getColumnIndex("image")).length));
             images.add(galleryPhoto);
         }
+
         return images;
     }
 
     public ArrayList<Meeting> getManicuristMeetingsByDay(int mani_id, String date) {
         ArrayList<Meeting> ary = new ArrayList<>();
-        String st = "SELECT * FROM appointments WHERE id_mani = " + mani_id + " AND date LIKE '%" + date.substring(0, 10) + "%' AND NOT client_id = 0";
+        String st = "SELECT * FROM appointments WHERE id_mani = " + mani_id + " AND date LIKE '%" + date.substring(0, 10) + "%' AND NOT id_client = 0";
         SQLiteDatabase db = getWritableDatabase();
         Cursor cursor = db.rawQuery(st, null);
         while (cursor.moveToNext()) {

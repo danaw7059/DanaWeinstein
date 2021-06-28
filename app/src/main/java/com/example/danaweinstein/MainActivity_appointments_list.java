@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -58,8 +59,7 @@ public class MainActivity_appointments_list extends AppCompatActivity implements
                 if (i < 10) {
                     if (dal.checkMeetings(getIntent().getIntExtra("mani_id", 0), date + "/0" + i))
                         hour.setSelected(true);
-                } else
-                if (dal.checkMeetings(getIntent().getIntExtra("mani_id", 0), date + "/" + i))
+                } else if (dal.checkMeetings(getIntent().getIntExtra("mani_id", 0), date + "/" + i))
                     hour.setSelected(true);
                 arrAppointment.add(hour);
             }
@@ -117,6 +117,16 @@ public class MainActivity_appointments_list extends AppCompatActivity implements
         {
             for (int i = 0; i < selectedHours.size(); i++)
                 dal.updateMeeting(dal.getClientByClientId(getIntent().getIntExtra("client_id",0)).getMani_id(), getIntent().getIntExtra("client_id", 0), date + "/" + selectedHours.get(i).getStringHour());
+        }
+        Toast.makeText(this, "Meeting confirm!", Toast.LENGTH_SHORT).show();
+        if (accountType) {
+            Intent maniHomePage = new Intent(this, MainActivity_home_mani.class);
+            maniHomePage.putExtra("mani_id",0);
+            startActivity(maniHomePage);
+        } else {
+            Intent clientHomePage = new Intent(this, MainActivity_home_client.class);
+            clientHomePage.putExtra("client_id",0);
+            startActivity(clientHomePage);
         }
 
 

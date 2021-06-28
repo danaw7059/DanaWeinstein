@@ -31,6 +31,8 @@ public class MainActivity_find_design extends AppCompatActivity {
     ArrayList<String> designs;
     ArrayList<Design> connected;
 
+    boolean accountType;
+
     Dal dal;
 
     @Override
@@ -48,12 +50,14 @@ public class MainActivity_find_design extends AppCompatActivity {
 
         dal = new Dal(this);
 
+        accountType = getIntent().getIntExtra("client_id", 0) == 0;
+
     }
 
     public void OnClickfind(View view) {
 
         if (light.isChecked()) {
-        designs.add("Light");
+            designs.add("Light");
         }
         if (dark.isChecked()) {
             designs.add("Dark");
@@ -72,58 +76,54 @@ public class MainActivity_find_design extends AppCompatActivity {
         }
         String strdesigns = "";
         int size = designs.size();
-        for(int i = 0; i < size - 1; i++){
-            strdesigns += designs.remove(0);
+        for (int i = 0; i < size; i++) {
+            strdesigns += designs.get(0);
             strdesigns += ",";
         }
-        strdesigns += designs.remove(0);
-        Toast.makeText(this,strdesigns ,Toast.LENGTH_SHORT).show();
+        if(!designs.isEmpty())
+        {
+            strdesigns += designs.remove(0);
+        }
+        int id_mani = 0;
+        if (accountType) {
+            connected = dal.findNewPolishNail(getIntent().getIntExtra("mani_id", 0), strdesigns);
+        } else {
+            connected = dal.findNewPolishNail(dal.getClientByClientId(getIntent().getIntExtra("client_id", 0)).getMani_id(), strdesigns);
+        }
 
-        connected = dal.findNewPolishNail(getIntent().getIntExtra("mani_id",0),strdesigns);
-        Toast.makeText(this, "" +connected.size(), Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "" + connected.size(), Toast.LENGTH_SHORT).show();
         Random rnd = new Random();
-        int index=0;
-        index = rnd.nextInt(connected.size());
+        int index = 0;
 
 
 
         //חלון קופץ של התמונה של הלק שנמצא
 
         LayoutInflater linf = LayoutInflater.from(this);
-        View inflater = linf.inflate(R.layout.find_design,null);
+        View inflater = linf.inflate(R.layout.find_design, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Your Chosen Design:");
-        final View customLayout = getLayoutInflater().inflate(R.layout.find_design, null);
+        if(!connected.isEmpty())
+        {
 
-        builder.setView(inflater);
-        ImageView imageView = inflater.findViewById(R.id.findDesignImage);
-        TextView textCompany = inflater.findViewById(R.id.TextCompany);
-        TextView textCodePolishNail = inflater.findViewById(R.id.TextCodePolishNail);
-        imageView.setImageBitmap(BitmapFactory.decodeByteArray(connected.get(index).getImage(),0,connected.get(index).getImage().length));
-        textCompany.setText("Company name: " + connected.get(index).getCompany_name());
-        textCodePolishNail.setText("Polish Nail Code: " + connected.get(index).getPolish_nail_code());
-        builder.setPositiveButton("Close",null);
+            builder.setTitle("Your Chosen Design:");
+            final View customLayout = getLayoutInflater().inflate(R.layout.find_design, null);
+
+            index = rnd.nextInt(connected.size());
+
+            builder.setView(inflater);
+            ImageView imageView = inflater.findViewById(R.id.findDesignImage);
+            TextView textCompany = inflater.findViewById(R.id.TextCompany);
+            TextView textCodePolishNail = inflater.findViewById(R.id.TextCodePolishNail);
+            imageView.setImageBitmap(BitmapFactory.decodeByteArray(connected.get(index).getImage(), 0, connected.get(index).getImage().length));
+            textCompany.setText("Company name: " + connected.get(index).getCompany_name());
+            textCodePolishNail.setText("Polish Nail Code: " + connected.get(index).getPolish_nail_code());
+        }
+        else
+        {
+            builder.setTitle("No matching design!");
+        }
+        builder.setPositiveButton("Close", null);
         builder.show();
     }
-/*
-    public void OnClickfind(View view) {
-
-        ImageView image = new ImageView(this);
-        image.setImageResource(R.drawable.danails);
-
-        AlertDialog.Builder builder =
-                new AlertDialog.Builder(this);
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-                        builder.setView(image);
-        builder.create().show();
-
-
-    }
-    */
-
 }

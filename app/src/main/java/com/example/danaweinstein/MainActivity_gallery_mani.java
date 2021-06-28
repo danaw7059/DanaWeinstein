@@ -45,6 +45,8 @@ public class MainActivity_gallery_mani extends AppCompatActivity {
 
         GalleryPhotoAdapter galleryPhotoAdapter = new GalleryPhotoAdapter(this,R.layout.gallery_cell,arrGalleryPhotos);
         gallery.setAdapter(galleryPhotoAdapter);
+
+        textview.setText(dal.getManiDetail(getIntent().getIntExtra("mani_id",0)));
     }
 
 
@@ -67,16 +69,14 @@ public class MainActivity_gallery_mani extends AppCompatActivity {
                 if (options[item].equals("Take Photo")) {
                     Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(takePicture, 0);
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    image.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    byte[] byteArray = stream.toByteArray();
-                    dal.addImageToGallery(getIntent().getIntExtra("mani_id",0),byteArray);
+
 
                 } else if (options[item].equals("Choose from Gallery")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(pickPhoto , 1);
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
                     image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
                     byte[] byteArray = stream.toByteArray();
                     dal.addImageToGallery(getIntent().getIntExtra("mani_id",0),byteArray);
 
@@ -97,6 +97,15 @@ public class MainActivity_gallery_mani extends AppCompatActivity {
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
                         image = selectedImage;
+
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                        byte[] byteArray = stream.toByteArray();
+                        dal.addImageToGallery(getIntent().getIntExtra("mani_id",0),byteArray);
+
+                        arrGalleryPhotos.add(new GalleryPhoto(image));
+                        GalleryPhotoAdapter galleryPhotoAdapter = new GalleryPhotoAdapter(this,R.layout.gallery_cell,arrGalleryPhotos);
+                        gallery.setAdapter(galleryPhotoAdapter);
                     }
 
                     break;

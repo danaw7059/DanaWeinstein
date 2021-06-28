@@ -4,11 +4,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity_setting_mani extends AppCompatActivity {
 
@@ -45,7 +47,7 @@ public class MainActivity_setting_mani extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         textView.setText(input.getText());
                         dal.updateManicuristDetails(getIntent().getIntExtra("mani_id",0),input.getText().toString());
-
+                        Toast.makeText(MainActivity_setting_mani.this, "Updated details", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -58,6 +60,8 @@ public class MainActivity_setting_mani extends AppCompatActivity {
                 });
 
         alertDialog.show();
+
+
 
     }
 }

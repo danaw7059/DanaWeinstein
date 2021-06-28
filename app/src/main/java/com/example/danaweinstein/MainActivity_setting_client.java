@@ -2,9 +2,11 @@ package com.example.danaweinstein;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity_setting_client extends AppCompatActivity {
 
@@ -27,6 +29,10 @@ public class MainActivity_setting_client extends AppCompatActivity {
         if(dal.checkForManicurist(Integer.parseInt(editText.getText().toString())))
         {
             dal.updateClientManiId(getIntent().getIntExtra("client_id",0),Integer.parseInt(editText.getText().toString()));
+            Toast.makeText(this, "Set id", Toast.LENGTH_SHORT).show();
         }
+
+
+
     }
 }

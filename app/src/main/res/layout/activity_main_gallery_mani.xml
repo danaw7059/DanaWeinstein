@@ -36,29 +36,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnRegister14"
-        android:layout_width="107dp"
-        android:layout_height="58dp"
-        android:backgroundTint="#E9E44094"
-        android:onClick="BackOnClick"
-        android:selectAllOnFocus="true"
-        android:shadowColor="#FFFFFF"
-        android:text="Back"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
     <GridView
         android:id="@+id/gridViewGalleryMani"
         android:layout_width="409dp"
         android:layout_height="278dp"
+        android:numColumns="auto_fit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

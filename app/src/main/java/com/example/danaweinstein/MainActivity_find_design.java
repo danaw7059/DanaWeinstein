@@ -90,9 +90,6 @@ public class MainActivity_find_design extends AppCompatActivity {
         } else {
             connected = dal.findNewPolishNail(dal.getClientByClientId(getIntent().getIntExtra("client_id", 0)).getMani_id(), strdesigns);
         }
-
-
-        Toast.makeText(this, "" + connected.size(), Toast.LENGTH_SHORT).show();
         Random rnd = new Random();
         int index = 0;
 

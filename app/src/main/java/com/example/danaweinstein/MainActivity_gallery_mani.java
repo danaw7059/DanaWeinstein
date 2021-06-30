@@ -48,13 +48,6 @@ public class MainActivity_gallery_mani extends AppCompatActivity {
 
         textview.setText(dal.getManiDetail(getIntent().getIntExtra("mani_id",0)));
     }
-
-
-    public void BackOnClick(View view) {
-        Intent BackPage = new Intent(this,MainActivity_home_mani.class);
-        startActivity(BackPage);
-    }
-
     public void onClickAddPicture(View view) {
         final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
 

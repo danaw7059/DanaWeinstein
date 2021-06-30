@@ -25,13 +25,6 @@ public class MainActivity_login extends AppCompatActivity {
         dal =new Dal(this);
     }
 
-
-
-    public void BackOnClick(View view) {
-        Intent BackPage = new Intent(this,MainActivity.class);
-        startActivity(BackPage);
-    }
-
     public void login(View view) {
         String stUsername =username.getText().toString();
         String stPassword = password.getText().toString();

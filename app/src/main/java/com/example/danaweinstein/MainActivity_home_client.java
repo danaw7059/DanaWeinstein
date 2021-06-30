@@ -31,10 +31,6 @@ public class MainActivity_home_client extends AppCompatActivity {
         FindDesigntPage.putExtra("client_id",getIntent().getIntExtra("client_id",0));
         startActivity(FindDesigntPage);
     }
-
-    public void BackOnClick(View view) {
-    }
-
     public void onClickSettingClient(View view) {
         Intent settingClient = new Intent(this, MainActivity_setting_client.class);
         settingClient.putExtra("client_id",getIntent().getIntExtra("client_id",0));

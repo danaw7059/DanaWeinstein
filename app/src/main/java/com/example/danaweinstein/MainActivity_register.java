@@ -35,11 +35,6 @@ public class MainActivity_register extends AppCompatActivity {
 
     }
 
-    public void BackOnClick(View view) {
-        Intent BackPage = new Intent(this,MainActivity.class);
-        startActivity(BackPage);
-    }
-
     public void registerOnClick(View view) {
 
 
@@ -50,15 +45,13 @@ public class MainActivity_register extends AppCompatActivity {
                  String type;
                  if (types.getCheckedRadioButtonId() == R.id.radioButtonManicurist) {
                      dal.addManicurist(fullName.getText().toString(), dal.getAccount(username.getText().toString()).getId(), "");
-                     Intent manicuristHomePage = new Intent(this, MainActivity_home_mani.class);
-                     manicuristHomePage.putExtra("mani_id", dal.getManicuristByAccountId(dal.getAccount(username.getText().toString()).getId()).getId());
-                     startActivity(manicuristHomePage);
+                     Intent loginPage = new Intent(this, MainActivity_login.class);
+                     startActivity(loginPage);
                  }
                 else {
                 dal.addClient(fullName.getText().toString(), dal.getAccount(username.getText().toString()).getId(), 0);
-                Intent clientHomePage = new Intent(this, MainActivity_home_client.class);
-                clientHomePage.putExtra("client_id", dal.getClientByAccountId(dal.getAccount(username.getText().toString()).getId()).getId());
-                startActivity(clientHomePage);
+                Intent loginPage = new Intent(this, MainActivity_login.class);
+                startActivity(loginPage);
             }
 
             }

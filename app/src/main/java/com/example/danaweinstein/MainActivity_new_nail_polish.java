@@ -90,12 +90,6 @@ public class MainActivity_new_nail_polish extends AppCompatActivity {
         Toast.makeText(this,"New nail polish added",Toast.LENGTH_SHORT).show();
     }
 
-    public void BackOnClick(View view) {
-        //זמני:
-        Intent BackPage = new Intent(this,MainActivity_home_mani.class);
-        startActivity(BackPage);
-    }
-
     public void addDesignOnClick(View view) {
         final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
 

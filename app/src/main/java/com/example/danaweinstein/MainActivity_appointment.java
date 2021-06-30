@@ -49,10 +49,4 @@ public class MainActivity_appointment extends AppCompatActivity implements Calen
             startActivity(i);
         }
     }
-
-    public void BackOnClick(View view) {
-    //זמני:
-        Intent BackPage = new Intent(this,MainActivity_home_mani.class);
-        startActivity(BackPage);
-    }
 }

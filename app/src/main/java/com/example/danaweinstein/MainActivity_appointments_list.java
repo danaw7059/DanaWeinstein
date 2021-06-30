@@ -41,8 +41,6 @@ public class MainActivity_appointments_list extends AppCompatActivity implements
 
         listViewAppointment.setOnItemClickListener(this);
 
-        Intent i = getIntent();
-
 
 
         selectedHours = new ArrayList<>();
@@ -102,9 +100,6 @@ public class MainActivity_appointments_list extends AppCompatActivity implements
 
     }
 
-    public void BackOnClick(View view) {
-    }
-
     public void onClickConfirm(View view) {
         if(accountType)
         {
@@ -121,11 +116,11 @@ public class MainActivity_appointments_list extends AppCompatActivity implements
         Toast.makeText(this, "Meeting confirm!", Toast.LENGTH_SHORT).show();
         if (accountType) {
             Intent maniHomePage = new Intent(this, MainActivity_home_mani.class);
-            maniHomePage.putExtra("mani_id",0);
+            maniHomePage.putExtra("mani_id",getIntent().getIntExtra("mani_id",0));
             startActivity(maniHomePage);
         } else {
             Intent clientHomePage = new Intent(this, MainActivity_home_client.class);
-            clientHomePage.putExtra("client_id",0);
+            clientHomePage.putExtra("client_id",getIntent().getIntExtra("client_id",0));
             startActivity(clientHomePage);
         }
 

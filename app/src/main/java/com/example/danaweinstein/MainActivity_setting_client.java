@@ -21,10 +21,6 @@ public class MainActivity_setting_client extends AppCompatActivity {
 
         dal = new Dal(this);
     }
-
-    public void BackOnClick(View view) {
-    }
-
     public void onClickSet(View view) {
         if(dal.checkForManicurist(Integer.parseInt(editText.getText().toString())))
         {

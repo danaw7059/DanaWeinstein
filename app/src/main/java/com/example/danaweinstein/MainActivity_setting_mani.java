@@ -27,9 +27,6 @@ public class MainActivity_setting_mani extends AppCompatActivity {
         textView.setText(dal.getManiDetail(getIntent().getIntExtra("mani_id",0)));
     }
 
-    public void BackOnClick(View view) {
-    }
-
     public void onClickEdit(View view) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Edit Details");

@@ -178,14 +178,6 @@ public class Dal extends SQLiteAssetHelper {
           5 - Fancy
         */
         String[] d = new String[]{"'%Light%'", "'%Dark%'", "'%Winter%'", "'%Summer%'", "'%Sparkle%'", "'%Fancy%'"};
-//        Design[][] designs = new Design[6][];
-//        int counter = 0;
-//        for (int i = 0; i < 6; i++) {
-//            designs[i] = helperFindNewPolishNail(d[i], mani_id);
-//            counter += designs[i].length;
-//        }
-//        ArrayList<Design> arrDesigns = new ArrayList<>();
-//        Design[] connected = new Design[counter];
 
         ArrayList<Design> arrDesigns = new ArrayList<>();
         int counter = 1;

@@ -21,16 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         /*************/
 
-//        Dal dal = new Dal(this);
-//        Resources res = getResources();
-//        Drawable drawable = res.getDrawable(R.drawable.n2);
-//        Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
-//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-//        byte[] bitMapData = stream.toByteArray();
-//        Design new_design = new Design(0,1,"Winter,Dark",bitMapData,"dani","n2");
-//        dal.addNewPolishNail(new_design);
-        //dal.addImageToGallery(1,bitMapData);
+
 
 
     }

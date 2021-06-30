@@ -32,9 +32,6 @@ public class MainActivity_home_mani extends AppCompatActivity {
         startActivity(AddNewPolishNail);
     }
 
-    public void BackOnClick(View view) {
-    }
-
     public void onClickMyProfile(View view) {
         Intent MyProfile = new Intent(this, MainActivity_gallery_mani.class);
         MyProfile.putExtra("mani_id",getIntent().getIntExtra("mani_id",0));

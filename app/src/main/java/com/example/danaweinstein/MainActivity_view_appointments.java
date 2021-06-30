@@ -42,7 +42,7 @@ public class MainActivity_view_appointments extends AppCompatActivity implements
         listViewHours.setOnItemClickListener(this);
 
         Intent i = getIntent();
-        textViewDate.setText(textViewDate.getText() + " " + i.getExtras().getInt("day") + "/" + i.getExtras().getInt("month") + 1 + "/" + i.getExtras().getInt("year"));
+        textViewDate.setText(textViewDate.getText() + " " + i.getExtras().getInt("day") + "/" + (i.getExtras().getInt("month") + 1) + "/" + i.getExtras().getInt("year"));
     }
     private void getHoursData() {
         ArrayList<Meeting> arrMeetings;

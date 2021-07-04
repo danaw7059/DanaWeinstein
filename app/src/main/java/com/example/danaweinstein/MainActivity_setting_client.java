@@ -26,6 +26,14 @@ public class MainActivity_setting_client extends AppCompatActivity {
         {
             dal.updateClientManiId(getIntent().getIntExtra("client_id",0),Integer.parseInt(editText.getText().toString()));
             Toast.makeText(this, "Set id", Toast.LENGTH_SHORT).show();
+            Intent homePageClient = new Intent(this, MainActivity_home_client.class);
+            homePageClient.putExtra("client_id",getIntent().getIntExtra("client_id",0));
+            startActivity(homePageClient);
+
+        }
+        else
+        {
+            Toast.makeText(this, "The id not exist!", Toast.LENGTH_SHORT).show();
         }
 
 
